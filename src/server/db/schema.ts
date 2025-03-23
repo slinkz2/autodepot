@@ -1,7 +1,8 @@
 // Example model schema from the Drizzle docs
 // https://orm.drizzle.team/docs/sql-schema-declaration
 
-import { sql } from "drizzle-orm";
+import { not, sql } from "drizzle-orm";
+import { varchar } from "drizzle-orm/mysql-core";
 import { index, pgTableCreator } from "drizzle-orm/pg-core";
 
 /**
@@ -12,11 +13,12 @@ import { index, pgTableCreator } from "drizzle-orm/pg-core";
  */
 export const createTable = pgTableCreator((name) => `autodepot_${name}`);
 
-export const posts = createTable(
-  "post",
+export const images = createTable(
+  "images",
   (d) => ({
-    id: d.integer().primaryKey().generatedByDefaultAsIdentity(),
-    name: d.varchar({ length: 256 }),
+    id: d.integer("id").primaryKey().generatedByDefaultAsIdentity(),
+    name: d.varchar("name",{ length: 256 }).notNull(),
+    url: d.varchar("url",{length:1024}).notNull(),
     createdAt: d
       .timestamp({ withTimezone: true })
       .default(sql`CURRENT_TIMESTAMP`)
