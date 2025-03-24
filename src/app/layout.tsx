@@ -1,10 +1,12 @@
 import { FaUser } from "react-icons/fa";
+import "@uploadthing/react/styles.css";
 import {ClerkProvider} from '@clerk/nextjs'  
 import "~/styles/globals.css";
 import { type Metadata } from "next";
 import { Geist } from "next/font/google";
 import Carousel from "../_components/carousel"; 
 import Topnav from "../_components/topnav";
+
 
 export const metadata: Metadata = {
   title: "autodepot",
@@ -25,15 +27,10 @@ export default function RootLayout({
     <html lang="en" className={`${geist.variable}`}>
       <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Topnav />     
-        <div className="h-full w-full text-2xl text-center mb-4" style={{ fontFamily: 'Arial, sans-serif' }}> PLEASE SIGN IN TO SEE THE BROCHURE</div> 
-        <Carousel /> 
         <div style={{ flex: 1 }}>
           {children}
         </div> 
-        <footer style={{ textAlign: 'center', padding: '1rem', backgroundColor: '#0000' }}>
-          <p>© AUTODEPOT PHILIPPINES CORPORATION. 2025 ALL RIGHTS RESERVED</p>
-        </footer>
-      </body>
+      </body> 
     </html>
     </ClerkProvider>
   );

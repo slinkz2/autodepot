@@ -9,22 +9,22 @@ export default function Topnav() {
         <img 
           src="https://nqoiq4wi68.ufs.sh/f/2f9wccbRFAt91feVizjIsQmGHiBp0oa9WAXOtrNVzky62K8n" 
           alt="Logo" 
-          className="h-15 w-40 ml-15"
+          className="h-15 w-40 center"
         />
       </div>
   
-      <div className="">
+      <div className="flex flex-row">
       <SignedOut>
         <SignInButton>
-        <button className="p-3 rounded-full hover:bg-gray-700 transition-colors">
-          <FaUserCircle className="w-10 h-10 text-white" />
+        <button className="p-3 rounded-full hover:bg-white-700 transition-colors cursor-pointer">
+            <FaUserCircle className="w-10 h-10 text-white" />
         </button>
         </SignInButton>
       </SignedOut>
         <SignedIn>
-          <UserButton /> 
+
         </SignedIn>
       </div>
     </nav>
   );
-}
+};
